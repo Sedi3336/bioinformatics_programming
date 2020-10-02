@@ -1,4 +1,4 @@
-## Welcome to Bioinformatics Programming & Scripting, sedi
+## Welcome to Bioinformatics Programming & Scripting
 
 To get started, you'll need to clone this repository to your computer.
 
