@@ -26,8 +26,8 @@ cd ../data
 sed 's/;/,/g' ../download/$white > ./$white
 sed 's/;/,/g' ../download/$red > ./$red
 
-awk -F "," '$12>5 {print $3 "," $5 "," $9 "," $11 "," $12}' $white > white_wine_good.csv
-awk -F "," '$12<=5 {print $3 "," $5 "," $9 "," $11 "," $12}' $white > white_wine_poor.csv
-awk -F "," '$12>5 {print $3 "," $5 "," $9 "," $11 "," $12}' $red > red_wine_good.csv
-awk -F "," '$12<=5 {print $3 "," $5 "," $9 "," $11 "," $12}' $red > red_wine_poor.csv
+awk -F "," 'NR==1 {print $3 "," $5 "," $9 "," $11 "," $12} ; $12>5 {print $3 "," $5 "," $9 "," $11 "," $12}' $white > white_wine_good.csv
+awk -F "," 'NR==1 {print $3 "," $5 "," $9 "," $11 "," $12} ; $12<=5 {print $3 "," $5 "," $9 "," $11 "," $12}' $white > white_wine_poor.csv
+awk -F "," 'NR==1 {print $3 "," $5 "," $9 "," $11 "," $12} ; $12>5 {print $3 "," $5 "," $9 "," $11 "," $12}' $red > red_wine_good.csv
+awk -F "," 'NR==1 {print $3 "," $5 "," $9 "," $11 "," $12} ; $12<=5 {print $3 "," $5 "," $9 "," $11 "," $12}' $red > red_wine_poor.csv
 
