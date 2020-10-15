@@ -35,4 +35,7 @@ awk -F "," 'NR==2 {print $3 "," $5 "," $9 "," $11} ; $12<=5 {print $3 "," $5 ","
 csv_wines=("white_wine_good.csv" "white_wine_poor.csv" "red_wine_good.csv" "red_wine_poor.csv")
 
 cd ..
+if [ ! -e "./results/" ];then
+        mkdir results
+fi
 python3 HW2.py ${csv_wines[@]}

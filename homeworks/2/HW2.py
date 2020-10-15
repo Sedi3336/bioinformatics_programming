@@ -1,11 +1,12 @@
 import csv
+import pickle
 import sys
 
 def calculate_avg_value(data, column_name):
     sum_data = 0
     for item in data:
         sum_data += item
-    return sum_data/len(data)
+    return float('%.2f' % (sum_data/len(data)))
 
 def find_average_wines(wine_paths):
     dict1 = {}
@@ -31,7 +32,9 @@ def find_average_wines(wine_paths):
             dict1[wine_path.replace('.csv','')] = dict3
     return dict1
 def main():
-    print(find_average_wines(sys.argv[1:]))
+    results = find_average_wines(sys.argv[1:])
+    with open('./results/results.pickle', 'wb') as handle:
+        pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 if __name__ == "__main__":
     main()
