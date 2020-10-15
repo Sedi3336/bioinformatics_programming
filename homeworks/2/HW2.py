@@ -33,6 +33,10 @@ def find_average_wines(wine_paths):
     return dict1
 def main():
     results = find_average_wines(sys.argv[1:])
+    print("Here are the avreages for different wine types and qualities:")
+    for k,v in results.items():
+        print(str(k) + ":" + (25-len(k))*' ' + str(v))
+    print("saving the results in a pickle file in results directory...")
     with open('./results/results.pickle', 'wb') as handle:
         pickle.dump(results, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
